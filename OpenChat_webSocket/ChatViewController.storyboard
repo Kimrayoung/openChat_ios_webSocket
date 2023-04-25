@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ChatViewController" customModule="OpenChat_webSocket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,15 +62,15 @@
                                 <rect key="frame" x="0.0" y="768" width="393" height="50"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-MO-Eep">
-                                        <rect key="frame" x="0.0" y="0.0" width="337.33333333333331" height="50"/>
+                                        <rect key="frame" x="5" y="0.0" width="327.33333333333331" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-Sy-d4n">
-                                        <rect key="frame" x="342.33333333333331" y="0.0" width="50.666666666666686" height="50"/>
-                                        <color key="tintColor" red="0.64611223440404397" green="0.93603590169236806" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="337.33333333333331" y="0.0" width="50.666666666666686" height="50"/>
+                                        <color key="tintColor" systemColor="systemMintColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system"/>
                                     </button>
@@ -78,11 +78,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="HfR-Sy-d4n" firstAttribute="top" secondItem="rnh-QD-7a7" secondAttribute="top" id="6Oa-t7-VAN"/>
-                                    <constraint firstItem="l1H-MO-Eep" firstAttribute="leading" secondItem="rnh-QD-7a7" secondAttribute="leading" id="7Un-ne-3PB"/>
+                                    <constraint firstItem="l1H-MO-Eep" firstAttribute="leading" secondItem="rnh-QD-7a7" secondAttribute="leading" constant="5" id="7Un-ne-3PB"/>
                                     <constraint firstAttribute="bottom" secondItem="l1H-MO-Eep" secondAttribute="bottom" id="OFL-Xh-XqZ"/>
                                     <constraint firstAttribute="bottom" secondItem="HfR-Sy-d4n" secondAttribute="bottom" id="Trg-bt-g4H"/>
                                     <constraint firstItem="HfR-Sy-d4n" firstAttribute="leading" secondItem="l1H-MO-Eep" secondAttribute="trailing" constant="5" id="pCP-uf-Sef"/>
-                                    <constraint firstAttribute="trailing" secondItem="HfR-Sy-d4n" secondAttribute="trailing" id="uMx-wl-IsD"/>
+                                    <constraint firstAttribute="trailing" secondItem="HfR-Sy-d4n" secondAttribute="trailing" constant="5" id="uMx-wl-IsD"/>
                                     <constraint firstItem="l1H-MO-Eep" firstAttribute="top" secondItem="rnh-QD-7a7" secondAttribute="top" id="vGS-l8-wzY"/>
                                     <constraint firstAttribute="height" constant="50" id="wUS-Oi-sAN"/>
                                 </constraints>
@@ -103,6 +103,14 @@
                             <constraint firstItem="iQY-N1-bBk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uWF-fF-7gP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageTableView" destination="iQY-N1-bBk" id="a2M-Nb-3rq"/>
+                        <outlet property="msgInputTextView" destination="l1H-MO-Eep" id="RYa-Ba-cE8"/>
+                        <outlet property="nickName" destination="sVQ-1S-qRy" id="q2L-Zl-u84"/>
+                        <outlet property="nickNameChangeBtn" destination="3qo-eh-wcx" id="Xbr-D4-Yfa"/>
+                        <outlet property="profileImg" destination="vcy-vf-fiF" id="aoR-f8-Pfu"/>
+                        <outlet property="sendMsgBtn" destination="HfR-Sy-d4n" id="TUh-v8-Fj2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +127,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

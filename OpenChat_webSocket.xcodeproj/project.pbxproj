@@ -16,6 +16,10 @@
 		4DAB35C029F6D66000D33134 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB35BF29F6D66000D33134 /* ChatViewController.swift */; };
 		4DAB35C229F6D68C00D33134 /* ChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DAB35C129F6D68C00D33134 /* ChatViewController.storyboard */; };
 		4DAB35C429F6E92C00D33134 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB35C329F6E92C00D33134 /* DataType.swift */; };
+		4DC6F64329F7BCCC00239B46 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC6F64229F7BCCC00239B46 /* SwiftyJSON */; };
+		4DC6F64529F7C85300239B46 /* Protocol+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6F64429F7C85300239B46 /* Protocol+Ext.swift */; };
+		4DC6F64729F7EE1300239B46 /* MsgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6F64629F7EE1300239B46 /* MsgTableViewCell.swift */; };
+		4DC6F64929F7EE2600239B46 /* MsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6F64829F7EE2600239B46 /* MsgTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,9 @@
 		4DAB35BF29F6D66000D33134 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4DAB35C129F6D68C00D33134 /* ChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatViewController.storyboard; sourceTree = "<group>"; };
 		4DAB35C329F6E92C00D33134 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		4DC6F64429F7C85300239B46 /* Protocol+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol+Ext.swift"; sourceTree = "<group>"; };
+		4DC6F64629F7EE1300239B46 /* MsgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgTableViewCell.swift; sourceTree = "<group>"; };
+		4DC6F64829F7EE2600239B46 /* MsgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC6F64329F7BCCC00239B46 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +73,7 @@
 				4DAB35AB29F6CD6300D33134 /* AppDelegate.swift */,
 				4DAB35AD29F6CD6300D33134 /* SceneDelegate.swift */,
 				4DAB35AF29F6CD6300D33134 /* ViewController.swift */,
+				4DC6F64429F7C85300239B46 /* Protocol+Ext.swift */,
 				4DAB35BF29F6D66000D33134 /* ChatViewController.swift */,
 				4DAB35C129F6D68C00D33134 /* ChatViewController.storyboard */,
 				4DAB35B129F6CD6300D33134 /* Main.storyboard */,
@@ -72,6 +81,8 @@
 				4DAB35B429F6CD6400D33134 /* Assets.xcassets */,
 				4DAB35B629F6CD6400D33134 /* LaunchScreen.storyboard */,
 				4DAB35B929F6CD6400D33134 /* Info.plist */,
+				4DC6F64629F7EE1300239B46 /* MsgTableViewCell.swift */,
+				4DC6F64829F7EE2600239B46 /* MsgTableViewCell.xib */,
 			);
 			path = OpenChat_webSocket;
 			sourceTree = "<group>";
@@ -92,6 +103,9 @@
 			dependencies = (
 			);
 			name = OpenChat_webSocket;
+			packageProductDependencies = (
+				4DC6F64229F7BCCC00239B46 /* SwiftyJSON */,
+			);
 			productName = OpenChat_webSocket;
 			productReference = 4DAB35A829F6CD6200D33134 /* OpenChat_webSocket.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +134,9 @@
 				Base,
 			);
 			mainGroup = 4DAB359F29F6CD6200D33134;
+			packageReferences = (
+				4DC6F64129F7BCCC00239B46 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 4DAB35A929F6CD6200D33134 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DAB35B829F6CD6400D33134 /* LaunchScreen.storyboard in Resources */,
+				4DC6F64929F7EE2600239B46 /* MsgTableViewCell.xib in Resources */,
 				4DAB35B529F6CD6400D33134 /* Assets.xcassets in Resources */,
 				4DAB35B329F6CD6300D33134 /* Main.storyboard in Resources */,
 				4DAB35C229F6D68C00D33134 /* ChatViewController.storyboard in Resources */,
@@ -153,6 +171,8 @@
 				4DAB35AC29F6CD6300D33134 /* AppDelegate.swift in Sources */,
 				4DAB35C029F6D66000D33134 /* ChatViewController.swift in Sources */,
 				4DAB35AE29F6CD6300D33134 /* SceneDelegate.swift in Sources */,
+				4DC6F64729F7EE1300239B46 /* MsgTableViewCell.swift in Sources */,
+				4DC6F64529F7C85300239B46 /* Protocol+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4DC6F64129F7BCCC00239B46 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DC6F64229F7BCCC00239B46 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DC6F64129F7BCCC00239B46 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4DAB35A029F6CD6200D33134 /* Project object */;
 }

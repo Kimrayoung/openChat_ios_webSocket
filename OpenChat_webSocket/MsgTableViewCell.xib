@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="144" id="A8r-1b-5KM" customClass="MsgTableViewCell" customModule="OpenChat_webSocket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="144"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8r-1b-5KM" id="n50-zR-Z31">
+                <rect key="frame" x="0.0" y="0.0" width="397" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nzp-Ka-ZV8">
+                        <rect key="frame" x="10" y="10" width="377" height="105"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnj-AR-Eqi">
+                        <rect key="frame" x="345" y="123" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nzp-Ka-ZV8" firstAttribute="leading" secondItem="n50-zR-Z31" secondAttribute="leading" constant="10" id="04a-IP-Sij"/>
+                    <constraint firstAttribute="bottom" secondItem="Qnj-AR-Eqi" secondAttribute="bottom" id="A6b-Wi-9Vy"/>
+                    <constraint firstAttribute="trailing" secondItem="Nzp-Ka-ZV8" secondAttribute="trailing" constant="10" id="nE4-fR-ycY"/>
+                    <constraint firstItem="Qnj-AR-Eqi" firstAttribute="top" secondItem="Nzp-Ka-ZV8" secondAttribute="bottom" constant="8" symbolic="YES" id="sJJ-xS-20E"/>
+                    <constraint firstItem="Nzp-Ka-ZV8" firstAttribute="top" secondItem="n50-zR-Z31" secondAttribute="top" constant="10" id="tOV-cb-d6a"/>
+                    <constraint firstAttribute="trailing" secondItem="Qnj-AR-Eqi" secondAttribute="trailing" constant="10" id="zfX-nO-Rxt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backView" destination="n50-zR-Z31" id="ysj-90-LDj"/>
+                <outlet property="msgTextView" destination="Nzp-Ka-ZV8" id="epI-4L-LLI"/>
+                <outlet property="timeLabel" destination="Qnj-AR-Eqi" id="ybA-KM-Wbq"/>
+            </connections>
+            <point key="canvasLocation" x="203.81679389312976" y="29.577464788732396"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
