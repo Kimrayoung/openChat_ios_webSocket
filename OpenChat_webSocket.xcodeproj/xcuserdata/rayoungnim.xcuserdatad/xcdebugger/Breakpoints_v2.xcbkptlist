@@ -14,10 +14,10 @@
             filePath = "OpenChat_webSocket/ChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "receiveMsg()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

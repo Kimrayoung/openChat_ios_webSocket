@@ -61,21 +61,24 @@ class ChatViewController: UIViewController {
         sendMsgBtn.layer.cornerRadius = 10
     }
     
+    //MARK: - 채팅 보내기
     @objc func sendMsgBtnClicked(_ sender: UIButton) {
         print(#fileID, #function, #line, "- <#comment#>")
         
         let urlString = "https://phplaravel-574671-3402493.cloudwaysapps.com/api/new-message"
         
-        guard let url = URL(string: urlString) else { return }
-        guard let msg = msgInputTextView.text else { return }
-
-        //        "2023-04-01 02:09:22"
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let msgData: MsgData = MsgData(username: nickName.text, profileImage: nil, message: msg, createdAt: formatter.string(from: Date()))
-        tableViewData.append(msgData)
+        guard let url = URL(string: urlString),
+              let msg = msgInputTextView.text,
+              let nickname = nickName.text else { return }
+        
+        let sendMsg : [String : Any] = [
+            "username" : nickname,
+            "message"  : msg
+        ]
         
         do {
-            guard let msgSendData = try? JSONEncoder().encode(msgData) else { return }
+            guard let msgSendData = try? JSONSerialization.data(withJSONObject: sendMsg, options: .prettyPrinted) else { return }
+            
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "POST"
             urlRequest.httpBody = msgSendData
@@ -90,6 +93,7 @@ class ChatViewController: UIViewController {
         
     }
     
+    //MARK: - 소켓 연결 설정
     fileprivate func connectSocket() {
         print(#fileID, #function, #line, "- connectSocket")
         //1. session만들어주기
@@ -138,20 +142,21 @@ class ChatViewController: UIViewController {
                         let chatData = convertMsg["data"] as? String ?? ""
                         print(#fileID, #function, #line, "- chatData: \(chatData)")
                         //메시지 데이터를 Json을 String으로 변경
-                        convertMsg = try JSONSerialization.jsonObject(with: Data(chatData.utf8)) as! [String : String]
+                        guard let tempMsg = chatData.data(using: .utf8) else { return }
                         //메시지가 내가 보낸 메시지인지 아닌지 확인
+                        
+                        guard let newMsg = try? JSONDecoder().decode(MsgData.self, from: tempMsg) else { return }
                         
                         DispatchQueue.main.async {
                             print(#fileID, #function, #line, "- username: \(convertMsg["username"] as? String ?? ""), nickName: \(self.nickName.text!)")
                             guard let nickName = self.nickName.text else { return }
                             if convertMsg["username"] as? String ?? "" == nickName {
-                                print(#fileID, #function, #line, "- 내가 보낸 메시지\(convertMsg["profileImg"] as? String ?? "profileImg 없음")")
-                                
+                                print(#fileID, #function, #line, "- 내가 보낸 메시지")
                                 return
                             }
                             
                             //테이블 뷰의 데이터에 append
-                            self.tableViewData.append(MsgData(username: convertMsg["username"] as? String ?? "", profileImage: convertMsg["profileImg"] as? String ?? "", message: convertMsg["message"] as? String ?? "", createdAt: convertMsg["createdAt"] as? String ?? ""))
+                            self.tableViewData.append(newMsg)
                             print(#fileID, #function, #line, "- ⭐️data checking: \(self.tableViewData)")
 
                             // Create a snapshot.
