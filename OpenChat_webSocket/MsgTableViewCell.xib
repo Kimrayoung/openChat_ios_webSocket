@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,43 +15,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="397" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nzp-Ka-ZV8">
-                        <rect key="frame" x="10" y="10" width="377" height="105"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnj-AR-Eqi">
-                        <rect key="frame" x="345" y="123" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3rh-Up-5ny">
+                        <rect key="frame" x="0.0" y="0.0" width="397" height="144"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBT-Yr-UzS">
+                                <rect key="frame" x="8" y="8" width="381" height="97.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnj-AR-Eqi">
+                                <rect key="frame" x="8" y="115.66666666666667" width="381" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Nzp-Ka-ZV8" firstAttribute="leading" secondItem="n50-zR-Z31" secondAttribute="leading" constant="10" id="04a-IP-Sij"/>
-                    <constraint firstAttribute="bottom" secondItem="Qnj-AR-Eqi" secondAttribute="bottom" id="A6b-Wi-9Vy"/>
-                    <constraint firstAttribute="trailing" secondItem="Nzp-Ka-ZV8" secondAttribute="trailing" constant="10" id="nE4-fR-ycY"/>
-                    <constraint firstItem="Qnj-AR-Eqi" firstAttribute="top" secondItem="Nzp-Ka-ZV8" secondAttribute="bottom" constant="8" symbolic="YES" id="sJJ-xS-20E"/>
-                    <constraint firstItem="Nzp-Ka-ZV8" firstAttribute="top" secondItem="n50-zR-Z31" secondAttribute="top" constant="10" id="tOV-cb-d6a"/>
-                    <constraint firstAttribute="trailing" secondItem="Qnj-AR-Eqi" secondAttribute="trailing" constant="10" id="zfX-nO-Rxt"/>
+                    <constraint firstItem="3rh-Up-5ny" firstAttribute="top" secondItem="n50-zR-Z31" secondAttribute="top" id="9e8-kJ-Jlg"/>
+                    <constraint firstAttribute="trailing" secondItem="3rh-Up-5ny" secondAttribute="trailing" id="IaX-IF-Svr"/>
+                    <constraint firstAttribute="bottom" secondItem="3rh-Up-5ny" secondAttribute="bottom" id="IkV-MA-Pxv"/>
+                    <constraint firstItem="3rh-Up-5ny" firstAttribute="leading" secondItem="n50-zR-Z31" secondAttribute="leading" id="ead-cy-7K7"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="backView" destination="n50-zR-Z31" id="ysj-90-LDj"/>
-                <outlet property="msgTextView" destination="Nzp-Ka-ZV8" id="epI-4L-LLI"/>
+                <outlet property="msgLabel" destination="RBT-Yr-UzS" id="kw9-cx-hcv"/>
                 <outlet property="timeLabel" destination="Qnj-AR-Eqi" id="ybA-KM-Wbq"/>
             </connections>
             <point key="canvasLocation" x="203.81679389312976" y="29.577464788732396"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

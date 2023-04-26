@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         nextBtn.addTarget(self, action: #selector(nextBtnClicked(_:)), for: .touchUpInside)
     }
 
-    //continue버튼을 누르면 채팅화면이 present되고 socket연결
     @objc func nextBtnClicked(_ sender: UIButton) {
         print(#fileID, #function, #line, "- ")
         //이거 누르면 채팅화면으로 변경

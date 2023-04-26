@@ -24,6 +24,7 @@ class ChatViewController: UIViewController {
     var formatter = DateFormatter()
     
     var tableViewData : [MsgData] = []
+    //diffableDataSource가 어떤 데이터 형태인지 표시
     var diffableDataSource: UITableViewDiffableDataSource<Int, MsgData>!
     
     override func viewDidLoad() {
@@ -33,10 +34,11 @@ class ChatViewController: UIViewController {
         connectSocket()
         messageTableView.register(MsgTableViewCell.uiNib, forCellReuseIdentifier: MsgTableViewCell.reuseIdentifier)
         
+        //데이터 소스의 테이블 뷰랑 cellProvide를 세팅해주기 -> 즉, 어떤 테이블 뷰에 데이터를 넣어줄 것인지, 그리고 어떤 cell을 넣어줄 것인지
         diffableDataSource = UITableViewDiffableDataSource<Int, MsgData>(tableView: messageTableView, cellProvider: { tableView, indexPath, itemIdentifier in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MsgTableViewCell.reuseIdentifier, for: indexPath) as? MsgTableViewCell else { return UITableViewCell() }
 
-            cell.msgTextView.text = self.tableViewData[indexPath.row].message
+            cell.msgLabel.text = self.tableViewData[indexPath.row].message
             cell.timeLabel.text = self.tableViewData[indexPath.row].createdAt
             
             guard let nickName = self.nickName.text else { return UITableViewCell() }
@@ -148,9 +150,19 @@ class ChatViewController: UIViewController {
                                 return
                             }
                             
+                            //테이블 뷰의 데이터에 append
                             self.tableViewData.append(MsgData(username: convertMsg["username"] as? String ?? "", profileImage: convertMsg["profileImg"] as? String ?? "", message: convertMsg["message"] as? String ?? "", createdAt: convertMsg["createdAt"] as? String ?? ""))
                             print(#fileID, #function, #line, "- ⭐️data checking: \(self.tableViewData)")
 
+                            // Create a snapshot.
+                            var snapshot = NSDiffableDataSourceSnapshot<Int, MsgData>()
+
+                            // Populate the snapshot.
+                            snapshot.appendSections([0])
+                            snapshot.appendItems(self.tableViewData)
+
+                            // Apply the snapshot.
+                            self.diffableDataSource.apply(snapshot, animatingDifferences: true)
                             self.receiveMsg()
                         }
                         

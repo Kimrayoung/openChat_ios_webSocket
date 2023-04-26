@@ -10,7 +10,7 @@ import UIKit
 
 class MsgTableViewCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var msgTextView: UITextView!
+    @IBOutlet weak var msgLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
